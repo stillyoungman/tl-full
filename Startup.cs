@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using tour_logistic.DataAccess;
 
 namespace tour_logistic
 {
@@ -27,6 +30,9 @@ namespace tour_logistic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var connStr = "*****!*****";//Заменить строку
+            services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(connStr));
 
             services.AddSpaStaticFiles(configuration =>
             {
