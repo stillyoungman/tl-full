@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tour_logistic.Models
 {
+    [Table("Users")]
     public class User
     {
         public int UserId { get; set; }

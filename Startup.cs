@@ -31,7 +31,7 @@ namespace tour_logistic
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            var connStr = "*****!*****";//Заменить строку
+            var connStr = @"Data Source=ABOOK\MOJAVE;Initial Catalog=mapAppStorage;Integrated Security=True";//Заменить строку
             services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(connStr));
 
             services.AddSpaStaticFiles(configuration =>
